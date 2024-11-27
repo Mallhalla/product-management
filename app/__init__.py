@@ -13,8 +13,8 @@ def create_app():
     app.config.from_object('config')
 
     # Enable CORS for all routes (you can restrict to specific origins if needed)
-    CORS(app, resources={r"/api/*": {"origins": os.environ.get("FRONTEND_DOMAIN")}})
-    # CORS(app)
+    # CORS(app, resources={r"/api/*": {"origins": os.environ.get("FRONTEND_DOMAIN")}})
+    CORS(app)
 
     # Register Blueprints
     app.register_blueprint(main)
