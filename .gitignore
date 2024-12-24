@@ -4,6 +4,9 @@
 ### vEnv ###
 flask_app/
 
+### Extra
+banit-report.json
+
 ### PyCache ###
 *.pyc
 
