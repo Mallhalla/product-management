@@ -7,7 +7,7 @@ load_dotenv()
 
 app = create_app()
 
-APP_HOST = os.environ.get()
+APP_HOST = os.environ.get('APP_HOST')
 
 if __name__ == '__main__':
     app.run(host=APP_HOST, port=5000)
