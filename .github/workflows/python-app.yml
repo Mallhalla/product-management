@@ -38,7 +38,7 @@ jobs:
       - name: Run Bandit Security Scan
         run: |
           # Run Bandit recursively on the codebase with high severity and confidence
-          bandit -r . -f xml -o bandit-report.xml --severity-level HIGH --confidence-level HIGH
+          bandit -r . -f xml -o bandit-report.xml --severity-level high --confidence-level high
 
         continue-on-error: false  # Ensure the step fails if Bandit finds issues
 
