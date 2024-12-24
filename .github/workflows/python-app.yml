@@ -38,7 +38,7 @@ jobs:
       - name: Run Bandit Security Scan
         run: |
           # Run Bandit recursively on the codebase with high severity and confidence
-          bandit -r . -f xml -o bandit-report.xml --severity-level high --confidence-level high
+          bandit -r . -f json -o bandit-report.json --severity-level high --confidence-level high
 
         continue-on-error: false  # Ensure the step fails if Bandit finds issues
 
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: bandit-report
-          path: bandit-report.xml
+          path: bandit-report.json
 
       - name: Fail the build if Bandit found issues
         if: failure()
