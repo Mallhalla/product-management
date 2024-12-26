@@ -1,6 +1,6 @@
 # Run App Locally
 
 ## Activate Virtual Env
-flask_app\Scripts\activate
+product_management\Scripts\activate
 ## Run App
 python main.py
