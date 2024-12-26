@@ -39,3 +39,13 @@ def test_get_all_products(mock_mongo_client):
     assert products[1]['name'] == 'elephant'
     assert products[1]['price'] == 4600000
     assert products[1]['image'] == 'https://github.com/user-attachments/assets/74edfc39-dae7-44be-b71c-3f7b67e739cb'
+
+def test_get_all_products_exception(mock_mongo_client):
+    # Simulate an exception in the collection's find method
+    mock_mongo_client.product_inventory.products.find.side_effect = Exception("Database error")
+
+    # Call the function and expect an empty list due to the exception
+    products = get_all_products(client=mock_mongo_client)
+
+    # Assertions
+    assert products == []
