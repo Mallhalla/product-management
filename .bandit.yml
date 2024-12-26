@@ -1,7 +1,0 @@
-# .bandit.yml
-exclude:
-  - app/test_product_service.py
-
-# or disable B101 entirely
-skips:
-  - B101
