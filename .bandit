@@ -1,2 +1,2 @@
-[bandit]
-exclude: ./app/test_product_service.py
+[tool.bandit.assert_used]
+skips = ['*_test.py', '*/test_*.py']
