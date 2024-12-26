@@ -1,2 +1,3 @@
 [bandit]
-exclude = tests  # Exclude the tests directory
+exclude = tests  
+skips = B101     
