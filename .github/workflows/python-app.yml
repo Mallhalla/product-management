@@ -35,6 +35,11 @@ jobs:
           # Treat all other flake8 errors as warnings and continue
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
+      - name: Run pytest tests
+        run: |
+          # Run pytest on the test directory (adjust if your tests are in a different folder)
+          pytest --maxfail=1 --disable-warnings -q
+
       - name: Run Bandit Security Scan
         run: |
           # Run Bandit recursively on the codebase with high severity and confidence
