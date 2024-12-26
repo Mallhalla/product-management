@@ -3,4 +3,4 @@ repos:
     rev: 1.7.5  # Use the latest stable version of Bandit
     hooks:
       - id: bandit
-        args: ["-r", "--exclude", "tests"]  # Exclude the "tests" folder from being scanned
+        args: ["-r", "--exclude", "test_*"]  # Exclude "tests" folder and files starting with "test_"
