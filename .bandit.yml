@@ -1,0 +1,2 @@
+exclude:
+  - app/test_product_service.py
