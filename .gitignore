@@ -6,6 +6,7 @@ flask_app/
 
 ### Extra
 bandit-report.json
+*.exe
 
 ### PyCache ###
 *.pyc

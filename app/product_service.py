@@ -2,14 +2,14 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
 from bson import ObjectId
+from app.db_connection import create_mongo_client
 import os
 
 load_dotenv()
 
-def get_products():
-    # Connect to DB
-    connection_string = os.environ.get("MONGO_CONNECTION_STRING")
-    client = MongoClient(connection_string, server_api=ServerApi('1'))
+def get_all_products(client=None):
+    if client is None:
+        client = create_mongo_client()
 
     try:
         db = client.product_inventory
