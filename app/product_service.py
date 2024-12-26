@@ -1,9 +1,5 @@
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 from dotenv import load_dotenv
-from bson import ObjectId
 from app.db_connection import create_mongo_client
-import os
 
 load_dotenv()
 
@@ -28,4 +24,3 @@ def get_all_products(client=None):
     except Exception as e:
         print("Error:", e)
         return []
-
