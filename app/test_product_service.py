@@ -1,6 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from app.product_service import get_all_products
+from flask import jsonify
 
 # Mock MongoDB
 @pytest.fixture
@@ -25,7 +26,8 @@ def mock_mongo_client():
     # Return the mock client to be used in the tests
     yield mock_client
 
-def test_get_all_products(mock_mongo_client):
+# Unit Test
+def test_get_all_products_mocked(mock_mongo_client):
     # Call the function that fetches all products, passing in the mocked client
     products = get_all_products(client=mock_mongo_client)
     
@@ -40,7 +42,8 @@ def test_get_all_products(mock_mongo_client):
     assert products[1]['price'] == 4600000
     assert products[1]['image'] == 'https://github.com/user-attachments/assets/74edfc39-dae7-44be-b71c-3f7b67e739cb'
 
-def test_get_all_products_exception(mock_mongo_client):
+# Unit Test
+def test_get_all_products_mocked_exception(mock_mongo_client):
     # Simulate an exception in the collection's find method
     mock_mongo_client.product_inventory.products.find.side_effect = Exception("Database error")
 
@@ -49,3 +52,8 @@ def test_get_all_products_exception(mock_mongo_client):
 
     # Assertions
     assert products == []
+
+# Integration Test
+def test_get_all_products():
+    products = get_all_products()
+    assert len(products) > 0
